@@ -169,4 +169,5 @@ Thumbs.db
 *.pqr
 *.xtc
 *.psf
-
+*.npz
+!/Data/*
