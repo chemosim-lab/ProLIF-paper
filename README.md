@@ -11,9 +11,9 @@ Data and code for the ProLIF paper
   re-running the calculations)
 - **Data**
   - `*.xlsx`: the annotated sequences of proteins, as downloaded from GPCRdb
-  - `3sn6.pqr`: PQR file downloaded from the PDB2PQR webserver
+  - `*.pqr`: PQR files downloaded from the PDB2PQR webserver
 - **Figures**  
-  All figures and interactive plots shown in the paper
+  All figures and interactive plots generated during the analysis
 
 ## Instructions
 ---

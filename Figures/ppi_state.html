@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "color": "#ccebc5", "font": {"face": "Monospace", "size": 77}, "id": "TYR43.A", "label": "Y43 ", "resid": "TYR43.A", "shape": "circle", "size": 10, "title": "Y43\u003cbr/\u003e1.38x38", "x": 1999.9999971616837, "y": 5.582147565618604e-06}, {"borderWidth": 1, "color": "#b3de69", "font": {"face": "Monospace", "size": 77}, "id": "PHE293.A", "label": "F293", "resid": "PHE293.A", "shape": "circle", "size": 10, "title": "F293\u003cbr/\u003e7.40x39", "x": 730.6820134813714, "y": -1861.747496377435}, {"borderWidth": 1, "color": "#ccebc5", "font": {"face": "Monospace", "size": 77}, "id": "PHE52.A", "label": "F52 ", "resid": "PHE52.A", "shape": "circle", "size": 10, "title": "F52\u003cbr/\u003e1.47x47", "x": 1977.6616068271928, "y": 298.08456242706}, {"borderWidth": 1, "color": "#ffffb3", "font": {"face": "Monospace", "size": 77}, "id": "PHE88.A", "label": "F88 ", "resid": "PHE88.A", "shape": "circle", "size": 10, "title": "F88\u003cbr/\u003e2.55x55", "x": 999.999938266618, "y": 1732.0509000440386}, {"borderWidth": 1, "color": "#b3de69", "font": {"face": "Monospace", "size": 77}, "id": "ALA299.A", "label": "A299", "resid": "ALA299.A", "shape": "circle", "size": 10, "title": "A299\u003cbr/\u003e7.46x46", "x": 1246.9792342987946, "y": -1563.6632375557463}, {"borderWidth": 1, "color": "#ffffb3", "font": {"face": "Monospace", "size": 77}, "id": "ASH83.A", "label": "D83 ", "resid": "ASH83.A", "shape": "circle", "size": 10, "title": "D83\u003cbr/\u003e2.50x50", "x": 1246.979591926663, "y": 1563.6630103014627}, {"borderWidth": 1, "color": "#ccebc5", "font": {"face": "Monospace", "size": 77}, "id": "GLN64.A", "label": "Q64 ", "resid": "GLN64.A", "shape": "circle", "size": 10, "title": "Q64\u003cbr/\u003e1.59x59", "x": 1801.9376966201569, "y": 867.7675177647071}, {"borderWidth": 1, "color": "#fccde5", "font": {"face": "Monospace", "size": 77}, "id": "THR320.A", "label": "T320", "resid": "THR320.A", "shape": "circle", "size": 10, "title": "T320\u003cbr/\u003e8.57x57", "x": 1977.6616068271928, "y": -298.08490889063324}, {"borderWidth": 1, "color": "#ffffb3", "font": {"face": "Monospace", "size": 77}, "id": "ASN73.A", "label": "N73 ", "resid": "ASN73.A", "shape": "circle", "size": 10, "title": "N73\u003cbr/\u003e2.40x40", "x": 1652.4775002311544, "y": 1126.6402053976365}, {"borderWidth": 1, "color": "#fb8072", "font": {"face": "Monospace", "size": 77}, "id": "THR160.A", "label": "T160", "resid": "THR160.A", "shape": "circle", "size": 10, "title": "T160\u003cbr/\u003e4.49x49", "x": -1246.9795947649793, "y": 1563.6630103014627}, {"borderWidth": 1, "color": "#fb8072", "font": {"face": "Monospace", "size": 77}, "id": "TRP161.A", "label": "W161", "resid": "TRP161.A", "shape": "circle", "size": 10, "title": "W161\u003cbr/\u003e4.50x50", "x": -1466.1037925693934, "y": 1360.3453682338184}, {"borderWidth": 1, "color": "#bebada", "font": {"face": "Monospace", "size": 77}, "id": "GLU113.A", "label": "E113", "resid": "GLU113.A", "shape": "circle", "size": 10, "title": "E113\u003cbr/\u003e3.28x28", "x": 730.6819538767268, "y": 1861.7475075417303}, {"borderWidth": 1, "color": "#b3de69", "font": {"face": "Monospace", "size": 77}, "id": "LYS296.A", "label": "K296", "resid": "LYS296.A", "shape": "circle", "size": 10, "title": "K296\u003cbr/\u003e7.43x42", "x": 999.9998190573285, "y": -1732.0508888797433}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "HIE211.A", "label": "H211", "resid": "HIE211.A", "shape": "circle", "size": 10, "title": "H211\u003cbr/\u003e5.46x461", "x": -1911.1456871663206, "y": 589.510267176325}, {"borderWidth": 1, "color": "#fb8072", "font": {"face": "Monospace", "size": 77}, "id": "PHE159.A", "label": "F159", "resid": "PHE159.A", "shape": "circle", "size": 10, "title": "F159\u003cbr/\u003e4.48x48", "x": -1000.0001199188686, "y": 1732.0507808347493}, {"borderWidth": 1, "color": "#bebada", "font": {"face": "Monospace", "size": 77}, "id": "ALA132.A", "label": "A132", "resid": "ALA132.A", "shape": "circle", "size": 10, "title": "A132\u003cbr/\u003e3.47x47", "x": 149.46023967332766, "y": 1994.4075387662622}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "CYS222.A", "label": "C222", "resid": "CYS222.A", "shape": "circle", "size": 10, "title": "C222\u003cbr/\u003e5.57x57", "x": -1977.661609665509, "y": -298.0845214604425}, {"borderWidth": 1, "color": "#bc80bd", "font": {"face": "Monospace", "size": 77}, "id": "GLU247.A", "label": "E247", "resid": "GLU247.A", "shape": "circle", "size": 10, "title": "E247\u003cbr/\u003e6.30x30", "x": -149.46054053486773, "y": -1994.4075276019669}, {"borderWidth": 1, "color": "#bc80bd", "font": {"face": "Monospace", "size": 77}, "id": "THR251.A", "label": "T251", "resid": "THR251.A", "shape": "circle", "size": 10, "title": "T251\u003cbr/\u003e6.34x34", "x": 149.46059730119606, "y": -1994.4075276019669}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "TYR223.A", "label": "Y223", "resid": "TYR223.A", "shape": "circle", "size": 10, "title": "Y223\u003cbr/\u003e5.58x58", "x": -1911.1456871663206, "y": -589.5101368027406}, {"borderWidth": 1, "color": "#bebada", "font": {"face": "Monospace", "size": 77}, "id": "TYR136.A", "label": "Y136", "resid": "TYR136.A", "shape": "circle", "size": 10, "title": "Y136\u003cbr/\u003e3.51x51", "x": -445.04189601608556, "y": 1949.8558086419303}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "PHE221.A", "label": "F221", "resid": "PHE221.A", "shape": "circle", "size": 10, "title": "F221\u003cbr/\u003e5.56x56", "x": -2000.0, "y": -0.00016926340545726635}, {"borderWidth": 1, "color": "#bebada", "font": {"face": "Monospace", "size": 77}, "id": "CYS140.A", "label": "C140", "resid": "CYS140.A", "shape": "circle", "size": 10, "title": "C140\u003cbr/\u003e3.55x55", "x": -730.6820759243327, "y": 1861.7475075417303}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "THR229.A", "label": "T229", "resid": "THR229.A", "shape": "circle", "size": 10, "title": "T229\u003cbr/\u003e5.64x64", "x": -1801.937699458473, "y": -867.7675066004122}, {"borderWidth": 1, "color": "#fb8072", "font": {"face": "Monospace", "size": 77}, "id": "ALA166.A", "label": "A166", "resid": "ALA166.A", "shape": "circle", "size": 10, "title": "A166\u003cbr/\u003e4.55x55", "x": -1652.4775030694707, "y": 1126.6402053976365}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "TYR206.A", "label": "Y206", "resid": "TYR206.A", "shape": "circle", "size": 10, "title": "Y206\u003cbr/\u003e5.41x42", "x": -1801.937699458473, "y": 867.7676369739966}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "PHE212.A", "label": "F212", "resid": "PHE212.A", "shape": "circle", "size": 10, "title": "F212\u003cbr/\u003e5.47x47", "x": -1977.661609665509, "y": 298.0846518340271}, {"borderWidth": 1, "color": "#bc80bd", "font": {"face": "Monospace", "size": 77}, "id": "TRP265.A", "label": "W265", "resid": "TRP265.A", "shape": "circle", "size": 10, "title": "W265\u003cbr/\u003e6.48x48", "x": 445.04207199170327, "y": -1949.855797477635}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "ALA234.A", "label": "A234", "resid": "ALA234.A", "shape": "circle", "size": 10, "title": "A234\u003cbr/\u003e5.69x69", "x": -1652.47762227876, "y": -1126.6399558147623}, {"borderWidth": 1, "color": "#bc80bd", "font": {"face": "Monospace", "size": 77}, "id": "GLN244.A", "label": "Q244", "resid": "GLN244.A", "shape": "circle", "size": 10, "title": "Q244\u003cbr/\u003e6.27x27", "x": -730.6820163196879, "y": -1861.747496377435}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "GLN237.A", "label": "Q237", "resid": "GLN237.A", "shape": "circle", "size": 10, "title": "Q237\u003cbr/\u003e5.72x72", "x": -1466.1036733601038, "y": -1360.3454762788126}, {"borderWidth": 1, "color": "#bc80bd", "font": {"face": "Monospace", "size": 77}, "id": "SER240.A", "label": "S240", "resid": "SER240.A", "shape": "circle", "size": 10, "title": "S240\u003cbr/\u003e6.23x23", "x": -999.9998218956449, "y": -1732.0508888797433}, {"borderWidth": 1, "color": "#80b1d3", "font": {"face": "Monospace", "size": 77}, "id": "GLU239.A", "label": "E239", "resid": "GLU239.A", "shape": "circle", "size": 10, "title": "E239\u003cbr/\u003eTM5", "x": -1246.9792371371109, "y": -1563.6632375557463}, {"borderWidth": 1, "color": "#bc80bd", "font": {"face": "Monospace", "size": 77}, "id": "LYS245.A", "label": "K245", "resid": "LYS245.A", "shape": "circle", "size": 10, "title": "K245\u003cbr/\u003e6.28x28", "x": -445.042015225375, "y": -1949.855797477635}, {"borderWidth": 1, "color": "#fccde5", "font": {"face": "Monospace", "size": 77}, "id": "PHE313.A", "label": "F313", "resid": "PHE313.A", "shape": "circle", "size": 10, "title": "F313\u003cbr/\u003e8.50x50", "x": 1801.9376966201569, "y": -867.7675066004122}, {"borderWidth": 1, "color": "#b3de69", "font": {"face": "Monospace", "size": 77}, "id": "ILE307.A", "label": "I307", "resid": "ILE307.A", "shape": "circle", "size": 10, "title": "I307\u003cbr/\u003e7.54x54", "x": 1652.4776194404437, "y": -1126.6399558147623}, {"borderWidth": 1, "color": "#fccde5", "font": {"face": "Monospace", "size": 77}, "id": "ARG314.A", "label": "R314", "resid": "ARG314.A", "shape": "circle", "size": 10, "title": "R314\u003cbr/\u003e8.51x51", "x": 1911.145565118715, "y": -589.5105540352537}, {"borderWidth": 1, "color": "#ccebc5", "font": {"face": "Monospace", "size": 114}, "id": "ASN55.A", "label": "N55 ", "resid": "ASN55.A", "shape": "circle", "size": 10, "title": "N55\u003cbr/\u003e1.50x50", "x": 1911.145565118715, "y": 589.5103863856145}, {"borderWidth": 1, "color": "#b3de69", "font": {"face": "Monospace", "size": 114}, "id": "TYR306.A", "label": "Y306", "resid": "TYR306.A", "shape": "circle", "size": 10, "title": "Y306\u003cbr/\u003e7.53x53", "x": 1466.104028149656, "y": -1360.3452378602337}, {"borderWidth": 1, "color": "#ffffb3", "font": {"face": "Monospace", "size": 114}, "id": "ASN78.A", "label": "N78 ", "resid": "ASN78.A", "shape": "circle", "size": 10, "title": "N78\u003cbr/\u003e2.45x45", "x": 1466.103789731077, "y": 1360.3454874431077}, {"borderWidth": 1, "color": "#bebada", "font": {"face": "Monospace", "size": 114}, "id": "TRP126.A", "label": "W126", "resid": "TRP126.A", "shape": "circle", "size": 10, "title": "W126\u003cbr/\u003e3.41x41", "x": 445.04195278241383, "y": 1949.8558086419303}, {"borderWidth": 1, "color": "#bebada", "font": {"face": "Monospace", "size": 175}, "id": "ARG135.A", "label": "R135", "resid": "ARG135.A", "shape": "circle", "size": 10, "title": "R135\u003cbr/\u003e3.50x50", "x": -149.46018290699936, "y": 1994.4076579755515}]);
+        edges = new vis.DataSet([{"color": "#a9a9a9", "data": 0.0, "from": "TYR43.A", "smooth": {"type": "curvedCW"}, "title": "TYR43.A - PHE293.A\u003cbr/\u003eHBDonor: 2", "to": "PHE293.A", "weight": 1, "width": 15}, {"color": "#a9a9a9", "data": 0.0, "from": "PHE52.A", "smooth": {"type": "curvedCCW"}, "title": "PHE52.A - PHE88.A\u003cbr/\u003ePiStacking: 2", "to": "PHE88.A", "weight": 1, "width": 15}, {"color": "#a9a9a9", "data": 0.0, "from": "ASN55.A", "smooth": {"type": "curvedCW"}, "title": "ASN55.A - ALA299.A\u003cbr/\u003eHBDonor: 2", "to": "ALA299.A", "weight": 1, "width": 15}, {"color": "#a9a9a9", "data": 0.0, "from": "ASN55.A", "smooth": {"type": "curvedCCW"}, "title": "ASN55.A - ASH83.A\u003cbr/\u003eHBAcceptor: 2", "to": "ASH83.A", "weight": 1, "width": 15}, {"color": "#66c2a5", "data": 1.0, "from": "GLN64.A", "smooth": {"type": "curvedCW"}, "title": "THR320.A - GLN64.A\u003cbr/\u003eHBDonor: 1", "to": "THR320.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "ASN73.A", "smooth": {"type": "curvedCW"}, "title": "TYR306.A - ASN73.A\u003cbr/\u003eHBAcceptor: 1", "to": "TYR306.A", "weight": 1, "width": 15}, {"color": "#a9a9a9", "data": 0.0, "from": "ASN78.A", "smooth": {"type": "curvedCCW"}, "title": "THR160.A - ASN78.A\u003cbr/\u003eHBAcceptor: 2", "to": "THR160.A", "weight": 1, "width": 15}, {"color": "#a9a9a9", "data": 0.0, "from": "ASN78.A", "smooth": {"type": "curvedCCW"}, "title": "TRP161.A - ASN78.A\u003cbr/\u003eHBDonor: 2", "to": "TRP161.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "GLU113.A", "smooth": {"type": "curvedCW"}, "title": "LYS296.A - GLU113.A\u003cbr/\u003eCationic: 1", "to": "LYS296.A", "weight": 1, "width": 15}, {"color": "#a9a9a9", "data": 0.0, "from": "TRP126.A", "smooth": {"type": "curvedCCW"}, "title": "HIE211.A - TRP126.A\u003cbr/\u003ePiStacking: 2", "to": "HIE211.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "TRP126.A", "smooth": {"type": "curvedCCW"}, "title": "PHE159.A - TRP126.A\u003cbr/\u003ePiStacking: 1", "to": "PHE159.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "ALA132.A", "smooth": {"type": "curvedCCW"}, "title": "CYS222.A - ALA132.A\u003cbr/\u003eHBDonor: 1", "to": "CYS222.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "ARG135.A", "smooth": {"type": "curvedCCW"}, "title": "GLU247.A - ARG135.A\u003cbr/\u003eAnionic: 1\u003cbr/\u003eHBAcceptor: 1", "to": "GLU247.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "ARG135.A", "smooth": {"type": "curvedCCW"}, "title": "THR251.A - ARG135.A\u003cbr/\u003eHBAcceptor: 1", "to": "THR251.A", "weight": 1, "width": 15}, {"color": "#66c2a5", "data": 1.0, "from": "ARG135.A", "smooth": {"type": "curvedCCW"}, "title": "TYR223.A - ARG135.A\u003cbr/\u003eHBAcceptor: 1", "to": "TYR223.A", "weight": 1, "width": 15}, {"color": "#66c2a5", "data": 1.0, "from": "TYR136.A", "smooth": {"type": "curvedCCW"}, "title": "PHE221.A - TYR136.A\u003cbr/\u003ePiStacking: 1", "to": "PHE221.A", "weight": 1, "width": 15}, {"color": "#66c2a5", "data": 1.0, "from": "CYS140.A", "smooth": {"type": "curvedCCW"}, "title": "THR229.A - CYS140.A\u003cbr/\u003eHBAcceptor: 1", "to": "THR229.A", "weight": 1, "width": 15}, {"color": "#a9a9a9", "data": 0.0, "from": "ALA166.A", "smooth": {"type": "curvedCCW"}, "title": "TYR206.A - ALA166.A\u003cbr/\u003eHBDonor: 2", "to": "TYR206.A", "weight": 1, "width": 15}, {"color": "#66c2a5", "data": 1.0, "from": "PHE212.A", "smooth": {"type": "curvedCCW"}, "title": "TRP265.A - PHE212.A\u003cbr/\u003eHBDonor: 1", "to": "TRP265.A", "weight": 1, "width": 15}, {"color": "#66c2a5", "data": 1.0, "from": "ALA234.A", "smooth": {"type": "curvedCCW"}, "title": "GLN244.A - ALA234.A\u003cbr/\u003eHBDonor: 1", "to": "GLN244.A", "weight": 1, "width": 15}, {"color": "#66c2a5", "data": 1.0, "from": "GLN237.A", "smooth": {"type": "curvedCCW"}, "title": "SER240.A - GLN237.A\u003cbr/\u003eHBDonor: 1", "to": "SER240.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "GLU239.A", "smooth": {"type": "curvedCCW"}, "title": "LYS245.A - GLU239.A\u003cbr/\u003eCationic: 1", "to": "LYS245.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "TYR306.A", "smooth": {"type": "curvedCCW"}, "title": "PHE313.A - TYR306.A\u003cbr/\u003ePiStacking: 1", "to": "PHE313.A", "weight": 1, "width": 15}, {"color": "#fc8d62", "data": -1.0, "from": "ILE307.A", "smooth": {"type": "curvedCCW"}, "title": "ILE307.A - ARG314.A\u003cbr/\u003eHBAcceptor: 1", "to": "ARG314.A", "weight": 1, "width": 15}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": false,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
