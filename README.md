@@ -20,6 +20,8 @@ Data and code for the ProLIF paper
 
 To read the analysis notebook ➡ **[click here](https://nbviewer.jupyter.org/github/chemosim-lab/ProLIF-paper/blob/main/Notebooks/Analysis.ipynb)** ⬅
 
+To run the notebook without installing anything: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/chemosim-lab/ProLIF-paper/HEAD?filepath=Notebooks%2FAnalysis.ipynb)
+
 To run the notebook locally, you will first need to install some dependencies.
 
 Start by cloning this repository:
