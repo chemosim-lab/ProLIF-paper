@@ -18,8 +18,7 @@ Data and code for the ProLIF paper
 ## Instructions
 ---
 
-To simply read the notebook that was used to generate all data and figures in the paper,
-we recommend following [this link](https://nbviewer.jupyter.org/github/chemosim-lab/ProLIF-paper/blob/main/Notebooks/Analysis.ipynb).
+To read the analysis notebook ➡ **[click here](https://nbviewer.jupyter.org/github/chemosim-lab/ProLIF-paper/blob/main/Notebooks/Analysis.ipynb)** ⬅
 
 To run the notebook locally, you will first need to install some dependencies.
 
@@ -37,7 +36,7 @@ environment:
 conda env create --name prolif-paper --file environment.yml
 # install prolif
 conda activate prolif-paper
-pip install https://github.com/chemosim-lab/ProLIF/archive/v0.3.1.zip
+pip install https://github.com/chemosim-lab/ProLIF/archive/v0.3.3.zip
 ```
 
 Once this is done, you should be able to run the [Analysis notebook](Notebooks/Analysis.ipynb):
