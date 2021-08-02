@@ -2,4 +2,4 @@
 
 set -e
 
-pip install https://github.com/chemosim-lab/ProLIF.git@88c1f01344e158f0444de24ee40526e9c62c2173
+pip install git+git://github.com/chemosim-lab/ProLIF.git@88c1f01344e158f0444de24ee40526e9c62c2173
