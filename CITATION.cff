@@ -18,13 +18,13 @@ references:
       - family-names: Fiorucci
         given-names: "Sébastien"
         orcid: "https://orcid.org/0000-0003-2245-0478"
-  title: "ProLIF: a library to encode molecular interactions as fingerprints"
-  type: article
-  doi: "10.1186/s13321-021-00548-6"
-  issn: "1758-2946"
-  year: 2021
-  date-published: "2021-09-25"
-  volume: 13
-  issue: 1
-  start: 72
-  journal: "Journal of Cheminformatics"
+    title: "ProLIF: a library to encode molecular interactions as fingerprints"
+    type: article
+    doi: "10.1186/s13321-021-00548-6"
+    issn: "1758-2946"
+    year: 2021
+    date-published: "2021-09-25"
+    volume: 13
+    issue: 1
+    start: 72
+    journal: "Journal of Cheminformatics"
