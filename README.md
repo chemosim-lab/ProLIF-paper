@@ -1,6 +1,10 @@
 # ProLIF-paper
 
-Data and code for the ProLIF paper
+Data and code for the ProLIF paper:
+```
+Bouysset, C., Fiorucci, S. ProLIF: a library to encode molecular interactions as fingerprints.
+J Cheminform 13, 72 (2021). https://doi.org/10.1186/s13321-021-00548-6
+```
 
 ## Description
 ---
@@ -38,7 +42,7 @@ environment:
 conda env create --name prolif-paper --file environment.yml
 # install prolif
 conda activate prolif-paper
-pip install https://github.com/chemosim-lab/ProLIF/archive/v0.3.3.zip
+pip install https://github.com/chemosim-lab/ProLIF/archive/v0.3.4.zip
 ```
 
 Once this is done, you should be able to run the [Analysis notebook](Notebooks/Analysis.ipynb):
